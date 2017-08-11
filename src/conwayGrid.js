@@ -1,4 +1,3 @@
-const defaultTicksPerSecond = 2;
 const populateChanceDefault = 0.04;
 
 class ConwayGrid {
@@ -6,7 +5,6 @@ class ConwayGrid {
         this.height = height;
         this.width = width;
         this.populateChance = populateChance || populateChanceDefault;
-        this.ticksPerSecond = ticksPerSecond || defaultTicksPerSecond;
     }
 
     setCanvas(canvas) {
@@ -31,17 +29,7 @@ class ConwayGrid {
         return Math.random() < this.populateChance ? 1 : 0;
     }
 
-    start() {
-        this.timer = setInterval(() =>
-            this.tick()
-        , 1000.0 / this.ticksPerSecond);
-    }
-
-    stop() {
-        clearInterval(this.timer);
-    }
-
-    tick() {
+    getNextGridState() {
         let newGridState = [];
         let countDead = 0;
         for (var w = 0; w < this.width; w++) {
@@ -89,10 +77,8 @@ class ConwayGrid {
             }
         }
         this.setGrid(newGridState);
-        this.canvas.drawGrid(this.grid);
-        if (countDead === this.width * this.height) {
-            this.stop();
-        }
+        
+        return this.grid;
     }
 }
 
