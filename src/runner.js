@@ -8,8 +8,8 @@ class ConwayRunner {
         this.ticksPerSecond = ticksPerSecond || defaultTicksPerSecond;
     }
 
-    start() {
-        
+    start() {        
+        this.canvas.attachToDOM(document.body);
         this.grid.initRandomGrid();
         this.timer = setInterval(() =>
             this.tick()

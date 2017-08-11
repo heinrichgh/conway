@@ -13,9 +13,12 @@
   "license": "MIT",
   "dependencies": {
     "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "html-webpack-plugin": "^2.29.0",
+    "script-loader": "^0.7.0",
     "style-loader": "^0.18.2",
+    "wasm-loader": "^1.1.0",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
   }

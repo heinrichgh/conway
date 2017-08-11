@@ -1,0 +1,1 @@
+emcc dice_roll.c -s NO_EXIT_RUNTIME=1 -s EXPORTED_FUNCTIONS="['_main','_rolling', '_put_in_buff']" -s WASM=1 -s ASSERTIONS=1 -O3 -o roller.exec.js

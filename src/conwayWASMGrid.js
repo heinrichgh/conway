@@ -7,6 +7,10 @@ class ConwayGrid {
         this.populateChance = populateChance || populateChanceDefault;
     }
 
+    setCanvas(canvas) {
+        this.canvas = canvas;
+    }
+
     setGrid(grid) {
         this.grid = grid;
     }
