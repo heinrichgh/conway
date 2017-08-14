@@ -36,7 +36,9 @@ class ConwayWASMGrid {
         return {
             getCell: (w,h) => {
                 var index = h*this.width + w;
-                return Module.HEAPU8.subarray(this.gridBuffer, this.gridBuffer+index + 1) // +1 because of the way HEAPU8.subarray works
+                //console.log(h, w, this.width, index);
+                //console.log(Module.HEAPU8.subarray(this.gridBuffer+index, this.gridBuffer+index+1));
+                return Module.HEAPU8.subarray(this.gridBuffer+index, this.gridBuffer+index+1)[0] // +1 because of the way HEAPU8.subarray works
             }
             , getWidth: () => this.width
             , getHeight: () => this.height

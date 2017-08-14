@@ -15,6 +15,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
+    "dependencies": "0.0.1",
     "html-webpack-plugin": "^2.29.0",
     "script-loader": "^0.7.0",
     "style-loader": "^0.18.2",

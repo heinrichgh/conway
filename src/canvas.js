@@ -29,6 +29,7 @@ class Canvas {
         this.context.fillRect(0, 0, this.width, this.height);
         // draw
         this.context.fillStyle = "green";
+        var counter = 0;
         for (var w = 0; w < this.grid.getWidth(); w++) {
             for (var h = 0; h < this.grid.getHeight(); h++) {
                 if (this.grid.getCell(w, h) === 1) {

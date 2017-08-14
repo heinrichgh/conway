@@ -12,9 +12,10 @@ class ConwayRunner {
         this.canvas.attachToDOM(document.body);
         this.grid.initRandomGrid();
         this.canvas.setGrid(this.grid.getGrid());
-        this.timer = setInterval(() =>
+        this.tick()
+        /*this.timer = setInterval(() =>
             this.tick()
-        , 1000.0 / this.ticksPerSecond);
+        , 1000.0 / this.ticksPerSecond);*/
     }
 
     stop() {
@@ -22,11 +23,17 @@ class ConwayRunner {
     }
 
     tick() {        
-        this.grid.getNextGridState();
+        this.grid.updateGridState();
         this.canvas.drawGrid();
         //this.grid.getNextGridState();
         //this.canvas.drawGrid(this.grid.getNextGridState());
+        requestAnimationFrame(() => this.tick());
     }
+
+    timestamp() {
+        return window.performance && window.performance.now ? window.performance.now() : new Date().getTime();
+    }
+
 }
 
 export default ConwayRunner;
