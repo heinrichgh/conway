@@ -4,6 +4,10 @@ class Canvas {
         this.width = width;
     }
 
+    setGrid(grid) {
+        this.grid = grid;
+    }
+
     attachToDOM(element, colour) {
         this.canvas = document.createElement('canvas');
         this.context = this.canvas.getContext('2d');
@@ -17,17 +21,17 @@ class Canvas {
         element.appendChild(this.canvas);
     }
 
-    drawGrid(grid) {
-        const cellWidth = this.width / grid.length;
-        const cellHeight = this.height / grid[0].length;
+    drawGrid() {
+        const cellWidth = this.width / this.grid.getWidth();
+        const cellHeight = this.height / this.grid.getHeight();
         // clear grid
         this.context.fillStyle = "black";
         this.context.fillRect(0, 0, this.width, this.height);
         // draw
         this.context.fillStyle = "green";
-        for (var w = 0; w < grid.length; w++) {
-            for (var h = 0; h < grid[w].length; h++) {
-                if (grid[w][h] === 1) {
+        for (var w = 0; w < this.grid.getWidth(); w++) {
+            for (var h = 0; h < this.grid.getHeight(); h++) {
+                if (this.grid.getCell(w, h) === 1) {
                     this.context.fillRect(w*cellWidth, h*cellHeight, cellWidth, cellHeight);
                 }
             }

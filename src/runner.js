@@ -11,6 +11,7 @@ class ConwayRunner {
     start() {        
         this.canvas.attachToDOM(document.body);
         this.grid.initRandomGrid();
+        this.canvas.setGrid(this.grid.getGrid());
         this.timer = setInterval(() =>
             this.tick()
         , 1000.0 / this.ticksPerSecond);
@@ -21,7 +22,10 @@ class ConwayRunner {
     }
 
     tick() {        
-        this.canvas.drawGrid(this.grid.getNextGridState());
+        this.grid.getNextGridState();
+        this.canvas.drawGrid();
+        //this.grid.getNextGridState();
+        //this.canvas.drawGrid(this.grid.getNextGridState());
     }
 }
 

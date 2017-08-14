@@ -25,7 +25,15 @@ class ConwayGrid {
         return Math.random() < this.populateChance ? 1 : 0;
     }
 
-    getNextGridState() {
+    getGrid() {
+        return {
+            getCell: (w,h) => this.grid[w][h]
+            , getWidth: () => this.width
+            , getHeight: () => this.height
+        }
+    }
+
+    updateGridState() {
         let newGridState = [];
         let countDead = 0;
         for (var w = 0; w < this.width; w++) {
@@ -73,8 +81,6 @@ class ConwayGrid {
             }
         }
         this.setGrid(newGridState);
-        
-        return this.grid;
     }
 }
 
